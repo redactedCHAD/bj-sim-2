@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Strategy & Count Trainer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top-info">
+            <h1 id="game-title">Blackjack Strategy & Count Trainer</h1>
+            <div class="live-running-count">
+                Live RC: <span id="live-rc-value">???</span>
+                <button id="reveal-rc-btn" title="Toggle actual Running Count">👁️</button>
+            </div>
+        </div>
+
+        <div class="settings-area">
+            <label for="deck-select">Shoe Size:</label>
+            <select id="deck-select">
+                <option value="6" selected>6 Decks</option>
+                <option value="2">2 Decks</option>
+                <option value="1">1 Deck</option>
+            </select>
+            <span>(Dealer Hits Soft 17)</span>
+            <button id="reset-stats-btn" title="Reset all session statistics">Reset Stats</button>
+        </div>
+
+        <div class="shoe-info">
+            Cards Remaining: <span id="cards-remaining">0</span> (<span id="decks-remaining">0</span> decks) <br>
+            Penetration for Reshuffle: <span id="penetration-display">~25%</span>
+        </div>
+
+        <div class="stats-edge-area">
+            <div class="stats-display">
+                <h3>Session Stats:</h3>
+                <p>Hands Played: <span id="stat-hands-played">0</span></p>
+                <p>Wins: <span id="stat-wins">0</span> (<span id="stat-win-pct">0</span>%)</p>
+                <p>Losses: <span id="stat-losses">0</span> (<span id="stat-loss-pct">0</span>%)</p>
+                <p>Pushes: <span id="stat-pushes">0</span> (<span id="stat-push-pct">0</span>%)</p>
+                <p>Blackjacks: <span id="stat-blackjacks">0</span></p>
+                <p>Total Units Won/Lost: <span id="stat-units-net">0</span></p>
+            </div>
+            <div class="edge-betting-display">
+                <h3>Current Situation:</h3>
+                <p>True Count (approx): <span id="true-count-value-main">0.00</span></p>
+                <p>Perceived Player Edge: <span id="perceived-edge">~0.0</span>%</p>
+                <p>Recommended Bet (units): <span id="recommended-bet">1</span></p>
+                <div id="betting-ramp-info">
+                    <h4>Betting Ramp Example:</h4>
+                    <ul>
+                        <li>TC <= +1: 1 unit</li>
+                        <li>TC +2: 2 units</li>
+                        <li>TC +3: 3 units</li>
+                        <li>TC +4: 4 units</li>
+                        <li>TC +5: 5 units</li>
+                        <li>TC +6 & up: 6 units</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="game-area">
+            <div class="dealer-area">
+                <h2>Dealer's Hand (<span id="dealer-score">0</span>)</h2>
+                <div id="dealer-cards" class="cards"></div>
+            </div>
+
+            <div class="player-area">
+                <h2>Player's Hand (<span id="player-score">0</span>)</h2>
+                <div id="player-cards" class="cards"></div>
+                <div id="split-hand-area" style="display:none;">
+                    <h3>Split Hand (<span id="player-score-split">0</span>)</h3>
+                    <div id="player-cards-split" class="cards"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="trainer-input">
+            <label for="running-count-guess">Your Running Count Guess (after initial deal):</label>
+            <input type="number" id="running-count-guess" step="1">
+            <p class="feedback" id="rc-feedback"></p>
+
+            <label for="strategy-guess">Your Basic Strategy Play (H, S, D, P):</label>
+            <input type="text" id="strategy-guess" maxlength="1" size="3">
+            <p class="feedback" id="bs-feedback"></p>
+            <button id="submit-guesses-btn">Submit Guesses</button>
+        </div>
+
+        <div class="actions">
+            <button id="hit-btn" disabled>Hit</button>
+            <button id="stand-btn" disabled>Stand</button>
+            <button id="double-btn" disabled>Double</button>
+            <button id="split-btn" disabled>Split</button>
+        </div>
+
+        <div class="messaging">
+            <p id="message">Welcome! Select shoe size and click "Next Hand".</p>
+            <p id="deviation-info" class="feedback"></p>
+        </div>
+
+        <button id="next-hand-btn">Next Hand</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
