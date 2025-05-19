@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Trainer - Instructions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #1B5E20; /* Dark Green */
+        }
+        h1 { text-align: center; border-bottom: 2px solid #33691E; padding-bottom: 10px;}
+        h2 { margin-top: 30px; border-bottom: 1px solid #c8e6c9; padding-bottom: 5px;}
+        code {
+            background-color: #e9e9e9;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+        .key-term {
+            font-weight: bold;
+            color: #2E7D32; /* Medium Green */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #e8f5e9; /* Light Green */
+        }
+        .note {
+            background-color: #fff9c4; /* Light Yellow */
+            border-left: 4px solid #ffeb3b; /* Yellow */
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px 15px;
+            background-color: #FFC107; /* Amber */
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            background-color: #FFA000; /* Darker Amber */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blackjack Strategy & Count Trainer - Instructions</h1>
+
+        <p><a href="index.html" class="back-link">Back to Trainer</a></p>
+
+        <h2>Overview</h2>
+        <p>
+            This Blackjack trainer is designed to help you master two crucial skills for advantage play:
+            <span class="key-term">Basic Strategy</span> and <span class="key-term">Card Counting (Hi-Lo System)</span>.
+            It also provides insights into <span class="key-term">True Count</span>, <span class="key-term">Player Edge</span>,
+            and <span class="key-term">Bet Sizing</span>.
+        </p>
+
+        <h2>How to Use the Trainer</h2>
+        <ol>
+            <li>
+                <strong>Select Shoe Size:</strong> At the top, choose whether you want to practice with a 1, 2, or 6-deck shoe.
+                The game rules are set to "Dealer Hits on Soft 17" (H17). Changing the shoe size will reset the current shoe and statistics.
+            </li>
+            <li>
+                <strong>Start a New Hand:</strong> Click the "Next Hand" button.
+            </li>
+            <li>
+                <strong>Initial Deal & Bet:</strong>
+                <ul>
+                    <li>The trainer automatically determines a <span class="key-term">Recommended Bet</span> (in units) based on the True Count from the *previous* hand (or 1 unit if it's the start of a shoe). This bet is displayed.</li>
+                    <li>Player and Dealer are dealt cards. Player gets two cards face up. Dealer gets one card up and one card down (hole card).</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Your Guesses (Crucial Training Step):</strong>
+                <ul>
+                    <li>
+                        <strong>Running Count Guess:</strong> Based on ALL cards you can see on the table *at this moment* (your two cards and the dealer's up-card), mentally calculate the <span class="key-term">Hi-Lo Running Count</span>. Enter your guess into the "Your Running Count Guess" field.
+                        <div class="note">
+                            <strong>Hi-Lo Count Values:</strong>
+                            <ul>
+                                <li>Cards 2, 3, 4, 5, 6: <span class="key-term">+1</span></li>
+                                <li>Cards 7, 8, 9: <span class="key-term">0</span></li>
+                                <li>Cards 10, Jack, Queen, King, Ace: <span class="key-term">-1</span></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Basic Strategy Play Guess:</strong> Based on your current hand total and the dealer's up-card, determine the <span class="key-term">correct Basic Strategy play</span>. Enter 'H' (Hit), 'S' (Stand), 'D' (Double), or 'P' (Split) into the "Your Basic Strategy Play" field.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>Submit Guesses:</strong> Click the "Submit Guesses" button.
+            </li>
+            <li>
+                <strong>Feedback:</strong>
+                <ul>
+                    <li>You'll receive immediate feedback on the accuracy of your Running Count guess (for visible cards).</li>
+                    <li>You'll receive feedback on your Basic Strategy play. The trainer will tell you the correct BS play for the selected deck count.
+                        If a common <span class="key-term">True Count deviation</span> is indicated, it will also be noted (primarily for 6-deck games).</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Player's Turn:</strong> The action buttons (Hit, Stand, Double, Split) will become active. Make your play.
+                <ul>
+                    <li>If you <span class="key-term">Double Down</span>, your bet for that hand is doubled.</li>
+                    <li>If you <span class="key-term">Split</span>, a new hand is created with a bet equal to your original bet for that round. You will then play each hand separately and be prompted for Basic Strategy guesses for each new two-card hand.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Dealer's Turn:</strong> Once you Stand or Bust, the dealer reveals their hole card.
+                (<em>The value of the dealer's hole card is now added to the live Running Count.</em>)
+                The dealer then plays according to H17 rules.
+            </li>
+            <li>
+                <strong>Outcome:</strong> The result of the hand(s) is displayed, along with the net units won or lost for that round.
+            </li>
+            <li>
+                <strong>Continue:</strong> Click "Next Hand" to play another round.
+            </li>
+        </ol>
+
+        <h2>Understanding Key Concepts</h2>
+
+        <h3>1. Basic Strategy (BS)</h3>
+        <p>
+            Basic Strategy is a set of mathematically optimal plays for every possible hand combination against every dealer up-card. Playing perfect Basic Strategy minimizes the house edge before considering card counting.
+            The trainer uses H17 (Dealer Hits Soft 17) Basic Strategy charts, which vary slightly depending on the number of decks in play.
+        </p>
+        <p class="note"><strong>Goal:</strong> Memorize and consistently apply the correct Basic Strategy for the chosen number of decks.</p>
+
+        <h3>2. Running Count (RC)</h3>
+        <p>
+            The Hi-Lo system is the most common card counting method. You keep a "running count" by adding or subtracting values as cards are dealt.
+        </p>
+        <table>
+            <thead>
+                <tr><th>Card Value</th><th>Count Adjustment</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>2, 3, 4, 5, 6</td><td>+1 (Low cards - good for player when removed)</td></tr>
+                <tr><td>7, 8, 9</td><td>0 (Neutral cards)</td></tr>
+                <tr><td>10, J, Q, K, Ace</td><td>-1 (High cards - bad for player when removed)</td></tr>
+            </tbody>
+        </table>
+        <p>
+            A <span class="key-term">positive Running Count</span> indicates more high cards are left in the shoe, which favors the player.
+            A <span class="key-term">negative Running Count</span> indicates more low cards are left, favoring the dealer.
+        </p>
+        <p class="note">
+            <strong>Goal:</strong> Accurately track the Running Count throughout the shoe. The trainer has a "Live RC" display (initially hidden by '???') that shows the actual count for all cards dealt (including the dealer's hole card *after* it's revealed). Your guess is based only on initially visible cards.
+        </p>
+
+        <h3>3. True Count (TC)</h3>
+        <p>
+            The Running Count's significance changes depending on how many cards are left in the shoe. A +5 RC is much more powerful with 1 deck remaining than with 5 decks remaining.
+            The <span class="key-term">True Count</span> normalizes this:
+        </p>
+        <p style="text-align: center;"><code>True Count = Running Count / Number of Decks Remaining</code></p>
+        <p>
+            The trainer displays an approximate True Count. This is the primary indicator used for betting decisions and some strategy deviations.
+        </p>
+
+        <h3>4. Player Edge (EV - Expected Value)</h3>
+        <p>
+            The "Perceived Player Edge" displayed is an estimation based on the True Count. A common (simplified) heuristic is:
+        </p>
+        <p style="text-align: center;"><code>Player Edge (%) ≈ (True Count - 1) * 0.5%</code></p>
+        <ul>
+            <li>If TC is +1, edge is ~0% (neutral game, close to base house edge).</li>
+            <li>If TC is +3, edge is ~(3-1)*0.5% = ~+1.0% in player's favor.</li>
+            <li>If TC is -2, edge is ~(-2-1)*0.5% = ~-1.5% (dealer has a 1.5% advantage over BS).</li>
+        </ul>
+        <p>
+            This means for every $100 bet at a +1.0% edge, you expect to win $1 on average over the long run.
+            Actual EV is more complex and depends on specific rules, penetration, and deviations played.
+        </p>
+
+        <h3>5. Bet Sizing (Units)</h3>
+        <p>
+            Card counters vary their bets based on the True Count. Bet more when the True Count (and thus player edge) is high, and bet the table minimum when it's low or negative.
+            The trainer shows a "Recommended Bet" based on a simple betting ramp:
+        </p>
+        <ul>
+            <li>TC <= +1: 1 unit</li>
+            <li>TC +2: 2 units</li>
+            <li>TC +3: 3 units</li>
+            <li>TC +4: 4 units</li>
+            <li>TC +5: 5 units</li>
+            <li>TC +6 & up: 6 units</li>
+        </ul>
+        <p>
+            This is a basic example. Professional betting strategies (like those based on the Kelly Criterion) are more precise and factor in bankroll size and risk tolerance. The "Total Units Won/Lost" stat tracks your performance based on this betting ramp.
+        </p>
+
+        <h3>6. Basic Strategy Deviations</h3>
+        <p>
+            In certain True Count situations, it becomes mathematically advantageous to deviate from Basic Strategy. For example, with a very high True Count, you might stand on a 16 vs. a dealer 10 (where BS says Hit).
+            The trainer will provide feedback if a common deviation (from lists like the "Illustrious 18," primarily for multi-deck games) is indicated by the current True Count.
+        </p>
+        <p class="note">
+            <strong>For 1 or 2 Deck Games:</strong> The deviation feedback uses a multi-deck reference. Specific deviation charts for 1D/2D games differ and are more extensive. The trainer's feedback serves as a general illustration of the concept.
+        </p>
+
+        <h2>Session Statistics</h2>
+        <p>
+            The trainer keeps track of your session:
+        </p>
+        <ul>
+            <li><strong>Hands Played:</strong> Total hands resolved (a split hand counts as two resolved outcomes).</li>
+            <li><strong>Wins, Losses, Pushes:</strong> Counts and percentages.</li>
+            <li><strong>Blackjacks:</strong> Player blackjacks.</li>
+            <li><strong>Total Units Won/Lost:</strong> Your net profit/loss based on the recommended betting units used for each hand.</li>
+        </ul>
+        <p>You can reset these stats using the "Reset Stats" button.</p>
+
+        <h2>Tips for Training</h2>
+        <ul>
+            <li><strong>Focus on Accuracy:</strong> Prioritize correct RC and BS guesses over speed initially.</li>
+            <li><strong>Use the Feedback:</strong> Learn from incorrect guesses.</li>
+            <li><strong>Practice Consistently:</strong> Regular practice is key to internalizing these skills.</li>
+            <li><strong>Observe Trends:</strong> Pay attention to how RC, TC, Edge, and Bet Sizing relate to each other.</li>
+            <li><strong>Start Simple:</strong> Begin with 6 decks if you're new to counting, as the TC is less volatile.</li>
+        </ul>
+
+        <p><a href="index.html" class="back-link">Back to Trainer</a></p>
+    </div>
+</body>
+</html>
